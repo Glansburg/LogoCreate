@@ -35,7 +35,19 @@ inquirer.prompt(logo)
     })
 
 //use fs write file 
+function writeToSvg(data) {
+    const svgData = `
+    ${data.text}
+    
+    `
+
+fs.writeFile('svgLogo.svg', writeToSvg(data), (err) => 
+err ? console.error(err) : console.log ('Success'))
 // step 1 Function call to initialize app
+}
+
+writeToSvg();
+// Function call to initialize app
 
 
 //use classes for shapes only they should have a function on them called render that returns a string that contains shape content <circle cx="150" cy="100" r="80" fill="green" />
