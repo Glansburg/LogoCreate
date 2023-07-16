@@ -22,7 +22,7 @@ const logo = [
         name: 'shapeColor',
         message: 'type in your favorite color for logo.',
         validate: function (color) {
-            if (color === colors) {
+            if (color === colors.colorPick) {
                 return true;
             }
             return "please enter a valid color";
