@@ -14,7 +14,7 @@ const logo = [
             }
             return "please enter 3 characters to begin";
         },
-        {
+        { //second input
 
         type: 'input',
         name: 'shapeColor',
