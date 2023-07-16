@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-//import colors from 'color-name';
+const colors = require('./node_modules/color-name/index');
 
 // take this information and make it into a string
 const logo = [
@@ -19,6 +19,12 @@ const logo = [
         type: 'input',
         name: 'shapeColor',
         message: 'type in your favorite color for logo.',
+        validate: function (color) {
+            if (color === colors) {
+                return true;
+            }
+            return "please enter a valid color";
+        }
         },
         
 
