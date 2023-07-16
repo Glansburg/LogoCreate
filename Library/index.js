@@ -35,18 +35,23 @@ inquirer.prompt(logo)
     })
 
 //use fs write file 
-function writeToSvg(data) {
-    const svgData = `
-    ${data.text}
-    
-    `
 
-fs.writeFile('svgLogo.svg', writeToSvg(data), (err) => 
+fs.writeFile('svgLogo.svg', svg(data), (err) => 
 err ? console.error(err) : console.log ('Success'))
 // step 1 Function call to initialize app
+
+function init() { 
+    inquirer.prompt(logo)
+    .then(data => svg(data))
 }
 
-writeToSvg();
+// Function call to initialize app
+init();
+
+
+// Function call to initialize app
+
+
 // Function call to initialize app
 
 
