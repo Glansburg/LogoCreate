@@ -1,11 +1,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const colors = require('./node_modules/color-name/index');
+//const colors = require('./node_modules/color-name/index');
 
-// take this information and make it into a string
+// add in require for shapes constructor
+
+
 const logo = [
     {
-        //first object
+        //first object for character input in logo
         type: 'input',
         name: 'text',
         message: 'Enter 3 characters for your logo.',
@@ -16,18 +18,23 @@ const logo = [
             return "please enter 3 characters to begin";
         },
     },
-    { //second object
+    { //second object for text color
 
         type: 'input',
-        name: 'shapeColor',
-        message: 'type in your favorite color for logo.',
-        validate: function (color) {
-            if (color === colors.colorPick) {
-                return true;
-            }
-            return "please enter a valid color";
-        }
+        name: 'textColor',
+        message: 'Enter TEXT color for logo.',
+        
     },
+
+    // third object will be for shape
+
+    // fourth object for shape color
+{
+    type: 'input',
+    name: 'shapeColor',
+    message: 'Enter SHAPE color for logo.',
+    
+},
 
 
 
@@ -46,7 +53,7 @@ inquirer.prompt(logo)
         const svg = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
         <circle cx="150" cy="100" r="80" fill=${data.shapeColor} />
       
-        <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">${data.text}</text>
+        <text x="150" y="125" font-size="60" text-anchor="middle" fill=${data.textColor}>${data.text}</text>
     
     
       
