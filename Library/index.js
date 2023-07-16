@@ -5,6 +5,7 @@ const colors = require('./node_modules/color-name/index');
 // take this information and make it into a string
 const logo = [
     {
+        //first object
         type: 'input',
         name: 'text',
         message: 'Enter 3 characters for your logo.',
@@ -14,7 +15,8 @@ const logo = [
             }
             return "please enter 3 characters to begin";
         },
-        { //second input
+    },
+    { //second object
 
         type: 'input',
         name: 'shapeColor',
@@ -25,15 +27,15 @@ const logo = [
             }
             return "please enter a valid color";
         }
-        },
-        
+    },
 
 
-    }
-    
-    
-       
-    
+
+
+
+
+
+
 ]
 
 // TODO: Create a function to initialize app
@@ -51,9 +53,9 @@ inquirer.prompt(logo)
       </svg>`
         console.log(svg);
 
-        
-fs.writeFile('svgLogo.svg', svg, (err) =>
-err ? console.error(err) : console.log('Success'))
+
+        fs.writeFile('svgLogo.svg', svg, (err) =>
+            err ? console.error(err) : console.log('Success'))
     })
 
 
