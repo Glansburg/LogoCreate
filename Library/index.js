@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { default: Choices } = require('inquirer/lib/objects/choices');
+const {Circle,Triangle,Square} = require('./shapes')
+
 //const colors = require('./node_modules/color-name/index');
 
 // add in require for shapes constructor
@@ -27,7 +30,12 @@ const logo = [
     },
 
     // third object will be for shape
-
+    {
+    type: 'list',
+    name: 'shape',
+    message: 'choose your choice of shape.',
+    choices: [Circle,Square,Triangle], 
+    },
     // fourth object for shape color
 {
     type: 'input',
@@ -51,7 +59,7 @@ inquirer.prompt(logo)
     .then(data => {
         console.log(data)
         const svg = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="150" cy="100" r="80" fill=${data.shapeColor} />
+        <${data.shape} cx="150" cy="100" r="80" fill=${data.shapeColor} />
       
         <text x="150" y="125" font-size="60" text-anchor="middle" fill=${data.textColor}>${data.text}</text>
     
