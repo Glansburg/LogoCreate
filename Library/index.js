@@ -66,10 +66,10 @@ inquirer.prompt(logo)
     
       
       </svg>`
-        console.log(svg);
+        console.log("Generated logo.svg");
 
 
-        fs.writeFile('svgLogo.svg', svg, (err) =>
+        fs.writeFile('Logo.svg', svg, (err) =>
             err ? console.error(err) : console.log('Success'))
     })
 
